@@ -81,8 +81,8 @@ $("td.ct_btn01:contains('취소')").on("click", function(){
 
 <body bgcolor="#ffffff" text="#000000">
 
-<form name="detailForm" method="post">
-
+<form name="detailForm" method="post" enctype="multipart/form-data">
+	
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
 		<td width="15" height="37">
@@ -170,7 +170,7 @@ $("td.ct_btn01:contains('취소')").on("click", function(){
 		<td width="104" class="ct_write">상품이미지</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input		type="text" name="fileName" class="ct_input_g" 
+			<input type="file" name="file1" id ="file1" class="ct_input_g" 
 							style="width: 200px; height: 19px" maxLength="13"/>
 		</td>
 	</tr>

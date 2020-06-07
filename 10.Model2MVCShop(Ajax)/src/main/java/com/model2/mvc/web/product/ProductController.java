@@ -1,5 +1,7 @@
 package com.model2.mvc.web.product;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -25,8 +28,7 @@ import com.model2.mvc.service.product.ProductService;
 //==> 회원관리 Controller
 @Controller
 @RequestMapping("/product/*")
-public class ProductController {
-	
+public class ProductController {;
 	///Field
 	@Autowired
 	@Qualifier("productServiceImpl")
@@ -57,14 +59,20 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="addProduct", method = RequestMethod.POST)
-	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
+	public String addProduct( @RequestParam("file1") MultipartFile uploadFile, @ModelAttribute("product") Product product ) throws Exception {
 
 		System.out.println("/product/addProduct : POST");
-	
 		product.setManuDate(product.getManuDate().replace("-", ""));
-
-		productService.addProduct(product);
+		
+		String originalFilename = uploadFile.getOriginalFilename();
+		
+		product.setFileName(originalFilename);
 	
+		File file = new File("C:\\Users\\user\\git\\repository\\10Model2MVCShop\\10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles\\"+originalFilename);
+		uploadFile.transferTo(file);
+		
+		productService.addProduct(product);
+		
 		return "forward:/product/addProduct.jsp";
 	}
 	

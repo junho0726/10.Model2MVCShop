@@ -113,7 +113,7 @@ $(function() {
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="26">
-						${product.fileName }
+					<img src = "../images/uploadFiles/${product.fileName}"/>
 					</td>
 				</tr>
 			</table>

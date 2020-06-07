@@ -58,6 +58,7 @@ $(".ct_list_pop td:nth-child(3)[name='search']" ).on("click" , function() {
 						+"상품상세정보 : "+JSONData.prodDetail+"<br/>"
 						+"제조일자 : "+JSONData.manuDate+"<br/>"
 						+"가격 : "+JSONData.price+"<br/>"
+						+"상품이미지 : <img src=../images/uploadFiles/"+JSONData.fileName+" width = 150px/><br/>"
 						+"</h3>";
 				
 				$("h3").remove();
