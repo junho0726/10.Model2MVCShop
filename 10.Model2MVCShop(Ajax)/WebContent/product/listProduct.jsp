@@ -39,6 +39,7 @@ $(".ct_list_pop td:nth-child(3)[name='manage']" ).on("click" , function() {
 	self.location ="/product/updateProductView?prodNo="+$(this).attr("value")
 });
 
+//<a href="/purchase/addPurchaseView?prod_no=${ product.prodNo}">구매</a>
 
 $(".ct_list_pop td:nth-child(3)[name='search']" ).on("click" , function() {
 	var prodNo = $(this).attr("value");
@@ -59,6 +60,7 @@ $(".ct_list_pop td:nth-child(3)[name='search']" ).on("click" , function() {
 						+"제조일자 : "+JSONData.manuDate+"<br/>"
 						+"가격 : "+JSONData.price+"<br/>"
 						+"상품이미지 : <img src=../images/uploadFiles/"+JSONData.fileName+" width = 150px/><br/>"
+						+"<a href=/purchase/addPurchaseView?prod_no="+JSONData.prodNo+"><font size =5px color=red>구매</a>" 
 						+"</h3>";
 				
 				$("h3").remove();

@@ -117,7 +117,7 @@
 				</tr>
 				<tr>
 					<td class="Depth03">
-<!-- 						<a href="/listProduct.do?menu=manage"  target="rightFrame">魄概惑前包府</a> -->
+<!-- 						<a href="/listProduct?menu=manage"  target="rightFrame">魄概惑前包府</a> -->
 					魄概惑前包府
 					</td>
 				</tr>
