@@ -53,6 +53,13 @@
 				class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
+	<bean id="uploadPath" class="java.lang.String">
+     <constructor-arg value="C:\\Users\\user\\git\\repository\\10Model2MVCShop\\10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles"></constructor-arg>
+	</bean>
+
+
+
+
 	<!--	
 		■ / 형식의 Mapping 은 모든(정적,동적 자원) 요청시 처리책임
 		■ 정적자원 요청시 DispatcherServlet 에게 처리방법지정

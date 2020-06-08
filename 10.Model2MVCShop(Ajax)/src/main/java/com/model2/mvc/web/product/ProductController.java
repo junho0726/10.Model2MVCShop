@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -29,7 +30,10 @@ import com.model2.mvc.service.product.ProductService;
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {;
-	///Field
+	
+    @Resource(name="uploadPath")
+	private String uploadPath;
+
 	@Autowired
 	@Qualifier("productServiceImpl")
 	private ProductService productService;
@@ -60,7 +64,8 @@ public class ProductController {;
 	
 	@RequestMapping(value="addProduct", method = RequestMethod.POST)
 	public String addProduct( @RequestParam("file1") MultipartFile uploadFile, @ModelAttribute("product") Product product ) throws Exception {
-
+	 
+	    
 		System.out.println("/product/addProduct : POST");
 		product.setManuDate(product.getManuDate().replace("-", ""));
 		
@@ -68,7 +73,7 @@ public class ProductController {;
 		
 		product.setFileName(originalFilename);
 	
-		File file = new File("C:\\Users\\user\\git\\repository\\10Model2MVCShop\\10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles\\"+originalFilename);
+		File file = new File(uploadPath ,originalFilename);
 		uploadFile.transferTo(file);
 		
 		productService.addProduct(product);
